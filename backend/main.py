@@ -9,7 +9,7 @@ frontend_url = os.getenv("FRONTEND_URL")
 
 origins = [
     "http://localhost:5173",   # local development
-    frontend_url               # production frontend
+    "https://hrms-lite-project-ebon.vercel.app"             # production frontend
 ]
 
 app.add_middleware(
