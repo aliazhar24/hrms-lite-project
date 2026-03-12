@@ -5,13 +5,16 @@ from routers import employees, attendance
 
 app = FastAPI()
 
+frontend_url = os.getenv("FRONTEND_URL")
+
 origins = [
-    os.getenv("FRONTEND_URL")
+    "http://localhost:5173",   # local development
+    frontend_url               # production frontend
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[o for o in origins if o],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
