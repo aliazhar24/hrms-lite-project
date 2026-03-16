@@ -5,7 +5,7 @@ from routers import employees, attendance
 
 app = FastAPI()
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 async def health():
     return {"status": "running"}
 
