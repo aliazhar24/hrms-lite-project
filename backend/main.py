@@ -5,11 +5,15 @@ from routers import employees, attendance
 
 app = FastAPI()
 
+@app.get("/")
+async def health():
+    return {"status": "running"}
+
 frontend_url = os.getenv("FRONTEND_URL")
 
 origins = [
-   
-    frontend_url             
+    
+    frontend_url           
 ]
 
 app.add_middleware(
